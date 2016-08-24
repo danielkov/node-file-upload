@@ -5,6 +5,8 @@ const express = require('express'),
       fs = require('fs'),
       path = require('path');
 
+app.use(express.static('uploads'));
+
 app.get('/', (req, res) => {
   res.send(`<h1>File upload</h1>
 <form action="upload" method="post" enctype="multipart/form-data">
@@ -16,8 +18,25 @@ app.get('/', (req, res) => {
 
 app.post('/upload', upload.single('fileInput'), (req, res) => {
   let file = req.file;
-  fs.rename(file.path, path.join(file.destination, file.originalname));
-  res.send(file);
+  let newFile = path.join(file.destination, file.originalname);
+  fs.rename(file.path, newFile);
+  let options = {
+    root: __dirname + '/uploads/',
+    dotfiles: 'deny',
+    headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true,
+    }
+  };
+  res.sendFile(file.originalname, options, function (err) {
+    if (err) {
+      console.log(err);
+      res.status(err.status).end();
+    }
+    else {
+      console.log('Sent:', file.originalname);
+    }
+  });
 })
 
 app.listen(3000, function(){
