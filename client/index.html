@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Image Upload</h1>
+    </header>
+    <main>
+      <section class="upload-section">
+        <div class="loader">
+          <span class="loader-circle"></span>
+          <span class="loader-circle"></span>
+          <span class="loader-circle"></span>
+        </div>
+        <div class="preview-frame" id="file-select">
+          <img src="" class="image-preview" />
+        </div>
+        <form enctype="multipart/form-data" class="upload-input">
+          <input type="file" name="fileInput" class="file-input">
+          <input type="submit" value="Upload" class="button">
+        </form>
+      </section>
+      <section class="display-section">
+        <div class="row"></div>
+        <div class="row"><span class="display-message">Loading content...</span></div>
+        <div class="row"></div>
+      </section>
+    </main>
+    <footer>
+      <article class="footer-information">
+        <h4>Simple Image Upload Api</h4>
+        <p>
+          Created by Daniel Kovacs <br>
+          2016
+        </p>
+      </article>
+    </footer>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

@@ -24,7 +24,9 @@
   },
   "homepage": "https://github.com/danielkov/node-file-upload#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "mongoose": "^4.5.10",
     "multer": "^1.2.0"
   }
 }
