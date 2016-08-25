@@ -48,13 +48,13 @@ $(function(){
       success: function(data) {
         if (data.length > 0) {
           var j = 0;
-          $('.row').empty();
+          $('.column').empty();
           if (data.length === 1) {
-            $($('.row')[1]).append('<div class="image-frame"><img src="'+data[0].src+'" class="image"><p class="image-subtext">'+data[0].title+'</p></div>');
+            $($('.column')[1]).append('<div class="image-frame img-thumbnail"><img src="'+data[0].src+'" class="image"><p class="image-subtext">'+data[0].title+'</p></div>');
           }
           for (var i = data.length - 1; i >= 0; i--) {
             var v = data[i];
-            $($('.row')[j % 3]).append('<div class="image-frame"><img src="'+v.src+'" class="image"><p class="image-subtext">'+v.title+'</p></div>');
+            $($('.column')[j % 3]).append('<div class="image-frame img-thumbnail"><img src="'+v.src+'" class="image"><p class="image-subtext">'+v.title+'</p></div>');
             j += 1;
           }
         }
